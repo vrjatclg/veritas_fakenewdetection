@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeritasAI - Ensemble Fact Intelligence</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i data-lucide="check-circle-2"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>VeritasAI</h1>
+                    <span>ENSEMBLE FACT INTELLIGENCE</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                
+                <div class="status-badge">
+                    <span class="pulse"></span>
+                    <span id="source-count">4 Sources Live</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Input Section -->
+        <main id="input-section" class="active">
+            <div class="claim-card">
+                <div class="card-label">
+                    <i data-lucide="search"></i>
+                    ENTER CLAIM TO ANALYSE
+                </div>
+                <div class="textarea-wrapper">
+                    <textarea id="claim-input" placeholder="Enter a news claim or statement to verify..."></textarea>
+                </div>
+                <div class="action-bar">
+                    <button id="analyse-btn" class="glow-btn">
+                        <i data-lucide="zap"></i>
+                        Analyse Claim
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading State -->
+        <section id="loading-section" class="hidden">
+            <div class="loader-content">
+                <div class="spinner"></div>
+                <p>Synthesizing Ensemble Intelligence...</p>
+                <div class="loading-bar-container">
+                    <div id="loading-progress" class="loading-progress"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="hidden">
+            <div class="results-grid">
+                <!-- Left Sidebar: Verdict -->
+                <div class="verdict-sidebar">
+                    <div class="verdict-header">
+                        <span class="label">CONSENSUS VERDICT</span>
+                        <div id="verdict-display" class="verdict-box">
+                            <h2 id="verdict-text">Likely Fake</h2>
+                        </div>
+                    </div>
+
+                    <div class="explainability-area">
+                        <div class="label-with-icon">
+                            <i data-lucide="info"></i>
+                            EXPLAINABILITY
+                        </div>
+                        <p id="explainability-text">
+                            The ensemble reached a verdict of likely fake because...
+                        </p>
+                    </div>
+
+                    <div class="metadata-footer">
+                        <div class="meta-item">
+                            <span>SOURCES QUERIED</span>
+                            <strong id="meta-sources">4</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>ENGINE</span>
+                            <strong id="meta-engine">Gemini Flash</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content: Feed -->
+                <div class="feed-content">
+                    <div class="feed-header">
+                        <div class="header-left">
+                            <i data-lucide="activity"></i>
+                            <h3>Intelligence Feed</h3>
+                        </div>
+                        <div class="nodes-badge" id="nodes-count">4 Nodes</div>
+                    </div>
+
+                    <div id="intelligence-feed" class="nodes-list">
+                        <!-- Dynamic Nodes here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button-footer">
+                <button id="new-analysis-btn" class="outline-btn">New Analysis</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
